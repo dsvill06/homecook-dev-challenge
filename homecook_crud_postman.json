@@ -1,0 +1,154 @@
+{
+	"info": {
+		"_postman_id": "08db0fb7-3bb2-4d6e-a168-d7c0b627f4c9",
+		"name": "HomeCook - CRUD Assessment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Fetch All Data",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{crud_api_id}}.execute-api.us-east-1.amazonaws.com/{{crud_api_stage}}/fetch",
+					"protocol": "https",
+					"host": [
+						"{{crud_api_id}}",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"{{crud_api_stage}}",
+						"fetch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Data with ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{crud_api_id}}.execute-api.us-east-1.amazonaws.com/{{crud_api_stage}}/fetch/1",
+					"protocol": "https",
+					"host": [
+						"{{crud_api_id}}",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"{{crud_api_stage}}",
+						"fetch",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add New Data",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "first test",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://{{crud_api_id}}.execute-api.us-east-1.amazonaws.com/{{crud_api_stage}}/create",
+					"protocol": "https",
+					"host": [
+						"{{crud_api_id}}",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"{{crud_api_stage}}",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Existing Data",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "https://{{crud_api_id}}.execute-api.us-east-1.amazonaws.com/{{crud_api_stage}}/update/1",
+					"protocol": "https",
+					"host": [
+						"{{crud_api_id}}",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"{{crud_api_stage}}",
+						"update",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Existing Data",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://{{crud_api_id}}.execute-api.us-east-1.amazonaws.com/{{crud_api_stage}}/remove/1",
+					"protocol": "https",
+					"host": [
+						"{{crud_api_id}}",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"{{crud_api_stage}}",
+						"remove",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
