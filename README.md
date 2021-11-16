@@ -1,7 +1,3 @@
-
-
-
-
 # HomeCook - Technical Challenge (React)
 
 <p>
@@ -32,72 +28,82 @@ To install and run:
 
 1. Clone the repo
 ```sh
-git clone https://github.com/hassanbadru/homecook-assessment.git
+git clone https://github.com/hassanbadru/homecook-dev-challenge.git
 ```
-2. In the root directory of the repo, install NPM packages
+2. Go to homecook-dev-challenge folder
+```sh
+cd homecook-dev-challenge
+```
+3. In the project root directory (i.e. /homecook-dev-challenge) of the repo, install NPM packages
 ```sh
 npm install
 ```
-3. In the project directory, you can run:
+4. Then, you can run:
 ```sh
 npm start
 ```
-4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+5. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 
-## Test API Endpoints
+## API Endpoints
+The following 5 endpoints have been created for this exercise. The values for **`api_id`** and **`api_stage`** would be provided accordingly.
+**`api_id`**: `7aqlss9ih7`
+**`api_stage`**: `dev`
 
-The values for **`api_id`** and **`api_stage`** would be provided separately
+([CRUD API handling](src/api/crud.js))
 
- 1. Fetch all kitchens (**`GET`**)
-	> `https://{{api_id}}.execute-api.us-east-1.amazonaws.com/{{api_stage}}/fetch`
+1. Fetch all kitchens (**`GET`**)
+	> `https://{api_id}.execute-api.us-east-1.amazonaws.com/{api_stage}/fetch`
+	**i.e.**  `https://7aqlss9ih7.execute-api.us-east-1.amazonaws.com/dev/fetch`
 
 2. Fetch kitchen by id (**`GET`**)
-	> `https://{{api_id}}.execute-api.us-east-1.amazonaws.com/{{api_stage}}/fetch/{{id}}`
+	> `https://{api_id}.execute-api.us-east-1.amazonaws.com/{api_stage}/fetch/{id}`
 
 3. Add new kitchen (**`POST`**)
-	> `https://{{api_id}}.execute-api.us-east-1.amazonaws.com/{{api_stage}}/create`
+	> `https://{api_id}.execute-api.us-east-1.amazonaws.com/{api_stage}/create`
 
 	**Request Body Schema**
 	{
-	    "name": *string*,
-	    "status": *string*,
-	    "location": *string*,
-	    "cost": *double*
+	    **name**: *string*,
+	    **status**: *string*,
+	    **location**: *string*,
+	    **cost**: *float*
 	}
 
 4. Update existing kitchen (**`PUT`**)
-	> `https://{{api_id}}.execute-api.us-east-1.amazonaws.com/{{api_stage}}/update/{{id}}`
+	> `https://{api_id}.execute-api.us-east-1.amazonaws.com/{api_stage}/update/{id}`
 
 	**Request Body Schema**
-	{
-	    "name": *string*,
-	    "status": *string*,
-	    "location": *string*,
-	    "cost": *double*
+    {
+	    **name**: *string*,
+	    **status**: *string*,
+	    **location**: *string*,
+	    **cost**: *float*
 	}
 
 5. Delete existing kitchen (**`DELETE`**)
-	> `https://{{api_id}}.execute-api.us-east-1.amazonaws.com/{{api_stage}}/remove/{{id}}`
+	> `https://{api_id}.execute-api.us-east-1.amazonaws.com/{api_stage}/remove/{id}`
 
 
 
+### Sample Screenshots
+1. **Fetch All Kitchens**
+   ![Product Screen Shot - original][product-screenshot-original]
 
+2. **Add New Kitchen**
+   ![Product Screen Shot - Add New Kitchen][product-screenshot-add-kitchen]
 
-### Demo Screenshots
+3. **View Kitchen Details**
+   ![Product Screen Shot - Kitchen Details][product-screenshot-kitchen-details]
 
-![Product Screen Shot - original][product-screenshot-original]
-
-![Product Screen Shot - Add New Kitchen][product-screenshot-add-kitchen]
-
-![Product Screen Shot - Kitchen Details][product-screenshot-kitchen-details]
-
-![Product Screen Shot - Delete Kitchen][product-screenshot-delete-kitchen]
+4. **Delete Kitchen**
+   ![Product Screen Shot - Delete Kitchen][product-screenshot-delete-kitchen]
 
 
 ### Notes
 1. Adapted Brad Frost's Atomic Design approach (https://atomicdesign.bradfrost.com/chapter-2/)
 2. Took advantage of Material UI components & Icons
+3. An utils module for ([Kitchen Statuses](src/utils/enums.js)) has been provided
 
 
 <!-- CONTACT -->
