@@ -1,3 +1,4 @@
+
 # HomeCook - Technical Challenge (React)
 
 <p>
@@ -46,15 +47,14 @@ npm start
 
 
 ## API Endpoints
-The following 5 endpoints have been created for this exercise. The values for **`api_id`** and **`api_stage`** would be provided accordingly.
-**`api_id`**: `7aqlss9ih7`
-**`api_stage`**: `dev`
+The following **5** endpoints have been created for this exercise. The values for **`api_id`** and **`api_stage`** would be provided accordingly.
+> **`api_id`**: `7aqlss9ih7`
+  **`api_stage`**: `dev`
 
 ([CRUD API handling](src/api/crud.js))
 
 1. Fetch all kitchens (**`GET`**)
 	> `https://{api_id}.execute-api.us-east-1.amazonaws.com/{api_stage}/fetch`
-	**i.e.**  `https://7aqlss9ih7.execute-api.us-east-1.amazonaws.com/dev/fetch`
 
 2. Fetch kitchen by id (**`GET`**)
 	> `https://{api_id}.execute-api.us-east-1.amazonaws.com/{api_stage}/fetch/{id}`
@@ -84,6 +84,9 @@ The following 5 endpoints have been created for this exercise. The values for **
 5. Delete existing kitchen (**`DELETE`**)
 	> `https://{api_id}.execute-api.us-east-1.amazonaws.com/{api_stage}/remove/{id}`
 
+
+
+#### Test GET Request to fetch list of all kitchens: `https://7aqlss9ih7.execute-api.us-east-1.amazonaws.com/dev/fetch`
 
 
 ### Sample Screenshots
