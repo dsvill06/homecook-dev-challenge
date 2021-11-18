@@ -1,13 +1,13 @@
 
-# HomeCook - Technical Challenge (React)
+# HomeCook - Frontend Dev Challenge (React)
 
 <p>
   <p>
-    Thank you for your interest in HomeCook! For this task, please implement a combination of React components (demonstrating component reusability, context management & API handling) to create a page with a list of kitchens using the provided API endpoints.
+    Thank you for your interest in HomeCook! For this task, please use ReactJS to create a page that fetches & displays a list of kitchens using the API endpoints. Your work should demonstrate component reusability, context management & API handling.
   </p>
 
   <p>
-    Please host your code on Github (or something similar) and share the repo link via email to hassan@homecookapp.com. Good luck!
+    Please add your code to Github (or similar) and send the repo link via email to hassan@homecookapp.com
   </p>
 
 ## Specification
@@ -21,7 +21,9 @@ Add frontend features to achieve the following:
 ### Additional Requirements (Bonus)
 - [ ] Sort kitchens by *name*, *id* and/or *status*
 - [ ] Allow **select all** to delete all kitchens at once
+- [ ] Use react router to navigate to a different view
 - [ ] Make web app mobile-responsive
+- [ ] Describe any future possible improvements you would implement
 
 
 ## Getting Started
@@ -35,7 +37,7 @@ git clone https://github.com/hassanbadru/homecook-dev-challenge.git
 ```sh
 cd homecook-dev-challenge
 ```
-3. In the project root directory (i.e. /homecook-dev-challenge) of the repo, install NPM packages
+3. In the project root directory (i.e. */homecook-dev-challenge*) of the repo, install NPM packages
 ```sh
 npm install
 ```
@@ -48,9 +50,6 @@ npm start
 
 ## API Endpoints
 The following **5** endpoints have been created for this exercise. The values for **`api_id`** and **`api_stage`** would be provided accordingly.
-> **`api_id`**: `7aqlss9ih7`
-  **`api_stage`**: `dev`
-
 ([CRUD API handling](src/api/crud.js))
 
 1. Fetch all kitchens (**`GET`**)
@@ -67,7 +66,7 @@ The following **5** endpoints have been created for this exercise. The values fo
 	    **name**: *string*,
 	    **status**: *string*,
 	    **location**: *string*,
-	    **cost**: *float*
+	    **cost**: *string*
 	}
 
 4. Update existing kitchen (**`PUT`**)
@@ -78,7 +77,7 @@ The following **5** endpoints have been created for this exercise. The values fo
 	    **name**: *string*,
 	    **status**: *string*,
 	    **location**: *string*,
-	    **cost**: *float*
+	    **cost**: *string*
 	}
 
 5. Delete existing kitchen (**`DELETE`**)
@@ -86,7 +85,7 @@ The following **5** endpoints have been created for this exercise. The values fo
 
 
 
-#### Test GET Request to fetch list of all kitchens: `https://7aqlss9ih7.execute-api.us-east-1.amazonaws.com/dev/fetch`
+#### Test GET Request to fetch list of all kitchens: [https://7aqlss9ih7.execute-api.us-east-1.amazonaws.com/dev/fetch](https://7aqlss9ih7.execute-api.us-east-1.amazonaws.com/dev/fetch)
 
 
 ### Sample Screenshots
@@ -103,10 +102,12 @@ The following **5** endpoints have been created for this exercise. The values fo
    ![Product Screen Shot - Delete Kitchen][product-screenshot-delete-kitchen]
 
 
-### Notes
-1. Adapted Brad Frost's Atomic Design approach (https://atomicdesign.bradfrost.com/chapter-2/)
-2. Took advantage of Material UI components & Icons
+### Helpful tips & notes
+1. Adapt your approach to Brad Frost's Atomic Design (https://atomicdesign.bradfrost.com/chapter-2/)
+2. Take advantage of Material UI components & Icons (https://mui.com/components/)
 3. An utils module for ([Kitchen Statuses](src/utils/enums.js)) has been provided
+4. A Postman collection ([json file](homecook_crud_postman.json)) has been included (to help with testing APIs independently)
+4. Feel free to reach out if you have any question or need better clarity
 
 
 <!-- CONTACT -->
