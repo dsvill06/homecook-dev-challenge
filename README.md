@@ -3,7 +3,7 @@
 
 <p>
   <p>
-    Thank you for your interest in HomeCook! For this task, please use ReactJS to create a page that fetches & displays a list of kitchens using the API endpoints. Your work should demonstrate component reusability, context management & API handling.
+    Thank you for your interest in HomeCook! For this task, please use ReactJS to create a page that displays a list of kitchens and performs basic CRUD operations using the provided API endpoints. Your work should demonstrate component reusability, context management & API handling.
   </p>
 
   <p>
@@ -11,12 +11,12 @@
   </p>
 
 ## Specification
-Add frontend features to achieve the following:
-- [ ] When a user clicks on the **Add New Kitchen** button, display a view / form to add new kitchen to the list
-- [ ] When a user clicks on the **Info** icon, it should expand with more details about that kitchen
-- [ ] When a user types in a kitchen *id* in the search box, the list updates to displays the kitchen with that *id*
-- [ ] When a user clicks on the **Edit** icon, it should display a view / form to update details for that kitchen
-- [ ] When a user clicks on the **Delete** icon, it should display a deletion warning (or modal), and then delete kitchen
+Your frontend solution must be able to achieve the following:
+- [ ] When a user clicks on the **Info** icon, it should display more information about that kitchen
+- [ ] When a user clicks on the **Edit** icon, it should allow update to information about that kitchen
+- [ ] When a user clicks on the **Add New Kitchen** button, it should allow user to add a new kitchen to the list
+- [ ] When a user types in a kitchen *id* in the search box, the list only shows the kitchen whose *id* is typed in
+- [ ] When a user clicks on the **Delete** icon, it should display a deletion warning and remove kitchen
 
 ### Additional Requirements (Bonus)
 - [ ] Sort kitchens by *name*, *id* and/or *status*
