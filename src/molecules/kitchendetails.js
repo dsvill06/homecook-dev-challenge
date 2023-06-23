@@ -16,9 +16,12 @@ const useStyles = makeStyles({
 
 const KitchenDetails = props => {
     const classes = useStyles()
+    const {kitchen} = props;
 
     return (
-      <Grid className={classes.apps}></Grid>
+      <Grid className={classes.apps}>
+        <Grid>{kitchen.name} | {kitchen.status} | {kitchen.location} | {kitchen.cost}</Grid>
+      </Grid>
     )
 }
 
