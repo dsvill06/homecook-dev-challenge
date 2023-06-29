@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .record{
+        @apply w-1/6
+    }
+    .headItem{
+        @apply w-1/6 border-2 border-gray-800 
+    }
+    .recordItem{
+        @apply w-1/4 text-center border-r-2
+    }
+    .gridLayout{
+        @apply grid m-5
+    }
+    .buttonsPrimary{
+        @apply hover:bg-primary-300 bg-primary-400 rounded-lg text-center text-white drop-shadow-lg
+    }
+    .formField{
+        @apply grid w-full
+    }
+}

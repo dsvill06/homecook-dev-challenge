@@ -2,6 +2,7 @@ import React from "react";
 import { Grid, Dialog } from '@material-ui/core'
 import { AddKitchenForm, DeleteConfirmationForm } from './forms'
 import { addKitchen, deleteKitchen } from "api/crud";
+import KitchenDetails from "molecules/kitchendetails";
 
 
 const AddKitchenModal = props => {
@@ -11,10 +12,10 @@ const AddKitchenModal = props => {
       closeAppModal();
     }
     return (
-        <Dialog fullWidth open={(isOpen) ? true : false} onClose={() => closeAppModal()}>
-          <Grid style={{margin: '2%'}}>
-            <AddKitchenForm handleData={handleData}/>
-          </Grid>
+        <Dialog class="z-5 mb-10" open={(isOpen) ? true : false} onClose={() => closeAppModal()}>
+          <div class="gridLayout">
+            <AddKitchenForm handleClose={closeAppModal} handleData={handleData}/>
+          </div>
         </Dialog>
     )
 }
@@ -29,15 +30,28 @@ const DeleteConfirmationModal = props => {
     };
 
     return (
-        <Dialog fullWidth open={(isOpen) ? true : false} onClose={() => closeDeleteModal()}>
-          <Grid>
-            <Grid style={{margin: '2%'}}>
+        <Dialog class=" mb-10" open={(isOpen) ? true : false} onClose={() => closeDeleteModal()}>
+          <div class="gridLayout">
+            <div class="gridLayout">
               <DeleteConfirmationForm handleClose={()=>closeDeleteModal()} onDeleteConfirmation={handleConfirmation}/>
-            </Grid>
-          </Grid>
+            </div>
+          </div>
         </Dialog>
     )
 }
 
+const InformationModal = props => {
+  let { isOpen, closeInfoModal,kitchen } = props
+    
 
-export { AddKitchenModal, DeleteConfirmationModal };
+    return (
+        <Dialog fullWidth open={(isOpen) ? true : false} onClose={() => closeInfoModal()}>
+          <div class="grid">
+            <div class='grid'>
+              <KitchenDetails kitchen={kitchen}/>
+            </div>
+          </div>
+        </Dialog>
+    )
+}
+export { AddKitchenModal, DeleteConfirmationModal, InformationModal};

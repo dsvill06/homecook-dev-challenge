@@ -8,6 +8,7 @@ import {
 
 import KitchensPage from "./pages/kitchenspage"
 import { useKitchen } from './contexts/kitchencontext'
+import Navbar from "./components/navbar.js"
 
 
 const AppView = props => {

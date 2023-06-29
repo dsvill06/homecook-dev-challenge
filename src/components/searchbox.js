@@ -33,13 +33,12 @@ const SearchBox = (props) => {
         <Search />
       </Grid>
       <Grid item>
-        <Button
+        <button
           onClick={() => setIsOpen(true)}
-          size="small"
-          style={{ backgroundColor: "#5DB6CE", color: "#fff" }}
+          class="buttonsPrimary w-30 h-10 p-2"
         >
           <AddIcon /> &nbsp; Add New Kitchen
-        </Button>
+        </button>
         <AddKitchenModal isOpen={isOpen} closeAppModal={() => setIsOpen(false)}/>
       </Grid>
     </Grid>

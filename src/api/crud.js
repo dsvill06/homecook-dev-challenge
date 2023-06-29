@@ -7,7 +7,7 @@ var stage = "dev"
 const kitchen = (i) =>{ 
     return({
     name: `Kitchen ${i}`,
-    status: "Pending",
+    status: "Confirmed",
     location: "New York",
     cost: "40.00",
     })
@@ -90,6 +90,7 @@ const updateKitchen = async (props) => {
 // 2 - GET KITCHEN WITH ID
 // 3 - UPDATE KITCHEN
 // 4 - DELETE KITCHEN
+
 
 
 export { getAllKitchens, getKitchenID, addKitchen,deleteKitchen, updateKitchen}

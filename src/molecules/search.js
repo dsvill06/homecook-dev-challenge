@@ -29,29 +29,21 @@ const Search = (props) => {
 
   return (
     <Grid className={classes.search}>
-      <TextField
-        id="outlined-controlled"
+      <input
+        type="text"
+        class="form-input px-4 py-3 rounded w-3/5 max-h-full"
         onChange={(event) => {
           setInput(event.target.value)
         }}
         placeholder={placeholder}
-        className={classes.searchfield}
-        variant="outlined"
         autoFocus
       />
-      <IconButton
-        className={classes.searchicon}
-        style={{
-          backgroundColor: "#5DB6CE",
-          color: "#fff",
-          borderRadius: "10%",
-          height: 55,
-          width: 55,
-        }}
+      <button
+        class="buttonsPrimary ml-2 h-12 w-12 "
         onClick={() => handleSearch(input)}
       >
         <SearchIcon />
-      </IconButton>
+      </button>
     </Grid>
   );
 };

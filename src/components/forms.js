@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Grid, TextField, Button, InputLabel} from "@material-ui/core";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { kitchenStatuses } from "../utils/enums";
 
@@ -14,7 +15,7 @@ const AddKitchenForm = (props) => {
     location: "",
     cost: "",
   });
-  let { handleData } = props;
+  let { handleData, handleClose} = props;
 
   const handleAddKitchen = () => {
     handleData(kitchen);
@@ -35,11 +36,11 @@ const AddKitchenForm = (props) => {
   }, [isSubmitted]);
 
   return (
-    <Grid container spacing={2}  justifyContent="center" alignItems="center">
-      <Grid item style={{ color: "#5db6ce", textAlign:"center"}}>
-        <h2>Add Kitchen</h2>
-      </Grid>
-      <Grid item xs={12}>
+    <div class="grid w-96 h-96 container space-x-2 space-y-2 justify-items-center align-middle m-5">
+      <div class="grid w-full text-primary-400 text-center pb-4">
+        <h2 class="text-3xl border-b border-gray-500">Add Kitchen</h2>
+      </div>
+      <div class="formField">
         <TextField
           onChange={(e) => {
             e.persist();
@@ -52,8 +53,8 @@ const AddKitchenForm = (props) => {
           variant="outlined"
           fullWidth
         />
-      </Grid>
-      <Grid item xs={12}>
+      </div>
+      <div class="formField">
         <TextField
           onChange={(e) => {
             e.persist();
@@ -66,8 +67,8 @@ const AddKitchenForm = (props) => {
           variant="outlined"
           fullWidth
         />
-      </Grid>
-      <Grid item xs={12}>
+      </div>
+      <div class="formField">
         <TextField
           onChange={(e) => {
             e.persist();
@@ -81,78 +82,66 @@ const AddKitchenForm = (props) => {
           type="number"
           fullWidth
         />
-      </Grid>
-      <Grid item xs={12}>
-        <Select
+      </div>
+      <div class="formField">
+        <select
           labelId="status-label"
           value={kitchen.status}
           onChange={handleStatusChange}
-          displayEmpty
-          fullWidth
+          class="form-select rounded"
         >
-          <MenuItem value="" disabled>
+          <option value="" disabled>
             -Status-
-          </MenuItem>
+          </option>
           {Object.entries(kitchen_statuses).map(([key, status]) => (
-            <MenuItem key={key} value={status.label}>
+            <option key={key} value={status.label}>
               {status.label}
-            </MenuItem>
+            </option>
           ))}
-        </Select>
-      </Grid>
+        </select>
+      </div>
 
-      <Grid item xs={12}>
-        <Button
+      <div class="formField pt-5 h-18">
+        <button
           onClick={handleAddKitchen}
           variant="contained"
           justifyContent="center"
-          fullWidth
-          style={{ backgroundColor: "#5db6ce", color: "white" }}
+          class="buttonsPrimary"
         >
           Add Kitchen
-        </Button>
-      </Grid>
-    </Grid>
+        </button>
+      </div>
+    </div>
   );
 };
 
 const DeleteConfirmationForm = (props) => {
   let { handleClose, onDeleteConfirmation } = props;
   return (
-    <Grid container spacing={2} justifyContent="center" alignItems="center">
-      <Grid item style={{ color: "#5db6ce", fontSize: "large" }}>
+    <div class='grid container space-x-2 space-y-2 justify-center align-center'>
+      <h1 class="text-xl text-primary-400">
         Are you sure you want to delete?
-      </Grid>
-      <Grid item xs={12} style={{ color: "#343434", textAlign: "center" }}>
+      </h1>
+      <div class="text-lg text-center pb-5">
         Please confirm kitchen deletion
-      </Grid>
-      <Grid style={{ textAlign: "center" }} item xs={12}>
-        <Button
+      </div>
+      <div class="text-center grid grid-cols-2 gap-5">
+        <button
+          class="h-10 text-center text-white bg-cancel rounded-md drop-shadow-lg"
           onClick={onDeleteConfirmation}
           variant="contained"
-          style={{
-            backgroundColor: "#ad0c00",
-            textAlign: "center",
-            color: "white",
-          }}
         >
           Yes
-        </Button>
-      </Grid>
-      <Grid style={{ textAlign: "center" }} item xs={12}>
-        <Button
+        </button>
+        <button
           variant="contained"
+          class="text-center text-white bg-stone-400 rounded drop-shadow-lg"
           onClick={handleClose}
-          style={{
-            backgroundColor: "#aaaaaa",
-            textAlign: "center",
-            color: "white",
-          }}
         >
           No
-        </Button>
-      </Grid>
-    </Grid>
+        </button>
+      </div>
+    </div>
   );
 };
 export { AddKitchenForm, DeleteConfirmationForm };

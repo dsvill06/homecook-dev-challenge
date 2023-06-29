@@ -15,24 +15,20 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
 import InfoIcon from "@material-ui/icons/Info";
 import KitchenDetails from "./kitchendetails";
-import { DeleteConfirmationModal } from "components/appModal";
-import { kitchenStatuses } from "../utils/enums";
+import { DeleteConfirmationModal,InformationModal } from "components/appModal";
+import { kitchenStatuses, statusColors } from "../utils/enums";
 import { updateKitchen } from "api/crud";
 
-const useStyles = makeStyles({
-  record: {
-    width: "100%",
-    color: "#444",
-    backgroundColor: "#eee",
-  },
-  item: {
-    width: "30%",
-  },
-});
+
 const kitchen_statuses = kitchenStatuses();
+const colors = statusColors();
+
+
+const circle = (status) => {
+      return <div className={`z-0 w-2 h-2 animate-pulse ${colors[status]} rounded-full`}></div>;
+};
 
 const KitchenRecord = (props) => {
-  const classes = useStyles();
   const [is_open, openCheck] = useState(false);
   const [isClicked, setClick] = useState(false);
   const [selected, updateSelect] = useState(false);
@@ -59,118 +55,120 @@ const KitchenRecord = (props) => {
   };
 
   return kitchen ? (
-    <>
-      <ListItem className={classes.record}>
-        <Grid style={{ width: "5%" }}>
-            {/* Uses the allselected prop from the kitchen list to set the check box*/}
-          {props.allSelected ? (
-            <CheckBoxIcon
-              style={{ cursor: "pointer" }}
-              onClick={() => updateSelect(false)}
-            />
-          ) : selected ? (
-            <CheckBoxIcon
-              style={{ cursor: "pointer" }}
-              onClick={() => updateSelect(false)}
-            />
-          ) : (
-            <CheckBoxOutlineBlankIcon
-              style={{ cursor: "pointer" }}
-              onClick={() => updateSelect(true)}
-            />
-          )}
-        </Grid>
+    <tr class="border-x-2 border-b-2">
+      <td class="">
+        {/* Uses the allselected prop from the kitchen list to set the check box*/}
+        {props.allSelected ? (
+          <CheckBoxIcon
+            style={{ cursor: "pointer" }}
+            onClick={() => updateSelect(false)}
+          />
+        ) : selected ? (
+          <CheckBoxIcon
+            style={{ cursor: "pointer" }}
+            onClick={() => updateSelect(false)}
+          />
+        ) : (
+          <CheckBoxOutlineBlankIcon
+            style={{ cursor: "pointer" }}
+            onClick={() => updateSelect(true)}
+          />
+        )}
+      </td>
 
-        <Grid style={{ width: "10%" }}>{kitchen.id}</Grid>
+      <td class="w-1/12 text-center border-r-2">{kitchen.id}</td>
 
-        <Grid className={classes.item}>
-          {/* This provides a test if the edit button has been checked and if so to open a text field to change the value. */}
-          {inEditMode ? (
-            <TextField
-              onChange={(e) => {
-                e.persist();
-                setKitchen((prevKitchen) => ({
-                  ...prevKitchen,
-                  name: e.target.value,
-                }));
-              }}
-              label="Kitchen Name"
-              variant="outlined"
-              fullWidth
-            />
-          ) : (
-            kitchen.name
-          )}
-        </Grid>
+      <td class="recordItem">
+        {/* This provides a test if the edit button has been checked and if so to open a text field to change the value. */}
+        {inEditMode ? (
+          <TextField
+            onChange={(e) => {
+              e.persist();
+              setKitchen((prevKitchen) => ({
+                ...prevKitchen,
+                name: e.target.value,
+              }));
+            }}
+            label="Kitchen Name"
+            variant="outlined"
+            fullWidth
+          />
+        ) : (
+          kitchen.name
+        )}
+      </td>
 
-        <Grid className={classes.item}>
-          {inEditMode ? (
-            <Select
-              labelId="status-label"
-              onChange={(e) => {
-                e.persist();
-                setKitchen((prevKitchen) => ({
-                  ...prevKitchen,
-                  status: e.target.value,
-                }));
-              }}
-              value={kitchen.status}
-              fullWidth
-            >
-              <MenuItem value="" disabled>
-                -Status-
+      <td class="recordItem">
+        {inEditMode ? (
+          <Select
+            labelId="status-label"
+            onChange={(e) => {
+              setKitchen((prevKitchen) => ({
+                ...prevKitchen,
+                status: e.target.value,
+              }));
+            }}
+            value={kitchen.status}
+            fullWidth
+          >
+            <MenuItem value="" disabled>
+              -Status-
+            </MenuItem>
+            {Object.entries(kitchen_statuses).map(([key, status]) => (
+              <MenuItem key={key} value={status.label}>
+                {status.label}
               </MenuItem>
-              {Object.entries(kitchen_statuses).map(([key, status]) => (
-                <MenuItem key={key} value={status.label}>
-                  {status.label}
-                </MenuItem>
-              ))}
-            </Select>
-          ) : (
-            kitchen.status
-          )}
-        </Grid>
+            ))}
+          </Select>
+        ) : (
+          <div className="flex justify-center items-center">
+            {circle(kitchen.status)}
+            <span className="ml-2">{kitchen.status}</span>
+          </div>
+        )}
+      </td>
 
-        <Grid className={classes.item}>
-          {inEditMode ? (
-            <TextField
-              onChange={(e) => {
-                e.persist();
-                setKitchen((prevKitchen) => ({
-                  ...prevKitchen,
-                  location: e.target.value,
-                }));
-              }}
-              label="Location"
-              variant="outlined"
-              fullWidth
-            />
-          ) : (
-            kitchen.location
-          )}
-        </Grid>
+      <td class="recordItem">
+        {inEditMode ? (
+          <TextField
+            onChange={(e) => {
+              setKitchen((prevKitchen) => ({
+                ...prevKitchen,
+                location: e.target.value,
+              }));
+            }}
+            label="Location"
+            variant="outlined"
+            fullWidth
+          />
+        ) : (
+          kitchen.location
+        )}
+      </td>
 
-        <Grid className={classes.item}>
-          {inEditMode ? (
-            <TextField
-              onChange={(e) => {
-                e.persist();
-                setKitchen((prevKitchen) => ({
-                  ...prevKitchen,
-                  cost: e.target.value,
-                }));
-              }}
-              type="number"
-              label="Cost"
-              variant="outlined"
-              fullWidth
-            />
-          ) : (
-            kitchen.cost
-          )}
-        </Grid>
-        {inEditMode ? <Button onClick={handleUpdate}>Update</Button> : null}
+      <td class="recordItem">
+        {inEditMode ? (
+          <TextField
+            onChange={(e) => {
+              e.persist();
+              setKitchen((prevKitchen) => ({
+                ...prevKitchen,
+                cost: e.target.value,
+              }));
+            }}
+            type="number"
+            label="Cost"
+            variant="outlined"
+            fullWidth
+          />
+        ) : kitchen.cost.includes(".") ? (
+          `$${kitchen.cost}`
+        ) : (
+          `$${kitchen.cost}.00`
+        )}
+      </td>
 
+      <td class="grid grid-cols-3 gap-9 pr-8">
         <EditIcon
           onClick={() => updateEditMode(true)}
           style={{ cursor: "pointer", color: "#ccc", margin: 2 }}
@@ -179,11 +177,13 @@ const KitchenRecord = (props) => {
           onClick={() => setClick(true)}
           style={{ cursor: "pointer", color: "#990000", margin: 2 }}
         />
+
         <DeleteConfirmationModal
           kitchen={kitchen}
           isOpen={isClicked}
           closeDeleteModal={() => setClick(false)}
         />
+
         {is_open ? (
           <RemoveCircleIcon
             style={{ cursor: "pointer", color: "#777", margin: 2 }}
@@ -195,11 +195,22 @@ const KitchenRecord = (props) => {
             onClick={() => updateOpenView()}
           />
         )}
-      </ListItem>
+        {inEditMode ? (
+          <td class="pb-16 pl-3">
+            <button
+              class=" buttonsPrimary h-12 w-20  "
+              onClick={handleUpdate}
+            >
+              Update
+            </button>
+          </td>
+        ) : null}
+      </td>
+
       {is_open ? (
-        <KitchenDetails kitchen={kitchen} openAppModal={openAppModal} />
+        <InformationModal isOpen={is_open} kitchen={kitchen} closeInfoModal={updateCloseView} />
       ) : null}
-    </>
+    </tr>
   ) : null;
 };
 
