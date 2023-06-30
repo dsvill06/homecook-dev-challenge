@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import CheckBoxOutlineBlankIcon from "@material-ui/icons/CheckBoxOutlineBlank";
 import CheckBoxIcon from "@material-ui/icons/CheckBox";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
-
 import KitchenRecord from "../molecules/kitchenrecord";
-
 import { useKitchen } from "../contexts/kitchencontext";
 
 

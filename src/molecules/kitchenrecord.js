@@ -1,31 +1,26 @@
 import React, { useState } from "react";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
-import {
-  Button,
-  makeStyles,
-  Grid,
-  ListItem,
-  TextField,
-} from "@material-ui/core";
+import { TextField } from "@material-ui/core";
 import CheckBoxOutlineBlankIcon from "@material-ui/icons/CheckBoxOutlineBlank";
 import CheckBoxIcon from "@material-ui/icons/CheckBox";
 import RemoveCircleIcon from "@material-ui/icons/RemoveCircle";
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
 import InfoIcon from "@material-ui/icons/Info";
-import KitchenDetails from "./kitchendetails";
-import { DeleteConfirmationModal,InformationModal } from "components/appModal";
+import { DeleteConfirmationModal, InformationModal } from "components/appModal";
 import { kitchenStatuses, statusColors } from "../utils/enums";
 import { updateKitchen } from "api/crud";
-
 
 const kitchen_statuses = kitchenStatuses();
 const colors = statusColors();
 
-
 const circle = (status) => {
-      return <div className={`z-0 w-2 h-2 animate-pulse ${colors[status]} rounded-full`}></div>;
+  return (
+    <div
+      className={`z-0 w-2 h-2 animate-pulse ${colors[status]} rounded-full`}
+    ></div>
+  );
 };
 
 const KitchenRecord = (props) => {
@@ -197,10 +192,7 @@ const KitchenRecord = (props) => {
         )}
         {inEditMode ? (
           <td class="pb-16 pl-3">
-            <button
-              class=" buttonsPrimary h-12 w-20  "
-              onClick={handleUpdate}
-            >
+            <button class=" buttonsPrimary h-12 w-20  " onClick={handleUpdate}>
               Update
             </button>
           </td>
@@ -208,7 +200,11 @@ const KitchenRecord = (props) => {
       </td>
 
       {is_open ? (
-        <InformationModal isOpen={is_open} kitchen={kitchen} closeInfoModal={updateCloseView} />
+        <InformationModal
+          isOpen={is_open}
+          kitchen={kitchen}
+          closeInfoModal={updateCloseView}
+        />
       ) : null}
     </tr>
   ) : null;

@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Dialog } from '@material-ui/core'
+import {Dialog } from '@material-ui/core'
 import { AddKitchenForm, DeleteConfirmationForm } from './forms'
 import { addKitchen, deleteKitchen } from "api/crud";
 import KitchenDetails from "molecules/kitchendetails";

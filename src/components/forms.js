@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Grid, TextField, Button, InputLabel} from "@material-ui/core";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
+import {TextField} from "@material-ui/core";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
 import { kitchenStatuses } from "../utils/enums";
 
 const AddKitchenForm = (props) => {
@@ -101,12 +98,11 @@ const AddKitchenForm = (props) => {
         </select>
       </div>
 
-      <div class="formField pt-5 h-18">
+      <div class="formField pt-5">
         <button
           onClick={handleAddKitchen}
           variant="contained"
-          justifyContent="center"
-          class="buttonsPrimary"
+          class="buttonsPrimary h-11"
         >
           Add Kitchen
         </button>
