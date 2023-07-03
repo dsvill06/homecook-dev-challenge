@@ -4,14 +4,6 @@ import axios from 'axios'
 var new_api_id = "7aqlss9ih7"
 var stage = "dev"
 
-const kitchen = (i) =>{ 
-    return({
-    name: `Kitchen ${i}`,
-    status: "Confirmed",
-    location: "New York",
-    cost: "40.00",
-    })
-}
 
 
 

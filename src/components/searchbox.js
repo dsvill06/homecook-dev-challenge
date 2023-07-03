@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Search from "../molecules/search";
-import AddIcon from "@material-ui/icons/Add";
+import AddIcon from "@mui/icons-material/Add";
 import { AddKitchenModal } from "./appModal";
 
 
@@ -10,9 +10,9 @@ const SearchBox = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div class="container grid grid-cols-2 w-full"
+    <div class=" grid grid-cols-2 w-full"
     >
-      <div class="grid 2/5" >
+      <div class="grid w-full" >
         <Search />
       </div>
       <div class="pt-2 text-right">

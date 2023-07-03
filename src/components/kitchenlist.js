@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import CheckBoxOutlineBlankIcon from "@material-ui/icons/CheckBoxOutlineBlank";
-import CheckBoxIcon from "@material-ui/icons/CheckBox";
-import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
+import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
+import CheckBoxIcon from "@mui/icons-material/CheckBox";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KitchenRecord from "../molecules/kitchenrecord";
 import { useKitchen } from "../contexts/kitchencontext";
 
