@@ -9,6 +9,7 @@ import {
 import KitchensPage from "./pages/kitchenspage"
 import { useKitchen } from './contexts/kitchencontext'
 import Navbar from "./components/navbar.js"
+import KitchenInfo from "pages/kitcheninfo";
 
 
 const AppView = props => {
@@ -16,11 +17,12 @@ const AppView = props => {
  useEffect(() => {loadData()}, [loadData])
   return (
       <>
+      <Navbar/>
       <Switch>
-          <Route path="/">
-              <KitchensPage />
-          </Route>
+          <Route exact path="/" component={KitchensPage}/>
+          <Route path="/kitcheninfo" component={KitchenInfo}/>
       </Switch>
+
       </>
   )
 }

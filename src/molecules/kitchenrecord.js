@@ -11,6 +11,7 @@ import InfoIcon from "@mui/icons-material/Info";
 import { DeleteConfirmationModal, InformationModal } from "components/appModal";
 import { kitchenStatuses, statusColors } from "../utils/enums";
 import { updateKitchen } from "api/crud";
+import { useHistory } from "react-router-dom";
 
 const kitchen_statuses = kitchenStatuses();
 const colors = statusColors();
@@ -35,8 +36,14 @@ const KitchenRecord = (props) => {
     cost: "",
   });
   let { kitchen, openAppModal } = props;
+  const history = useHistory()
+
 
   const updateOpenView = () => {
+    history.push({
+      pathname: "/kitcheninfo",
+      state: { kitchen },
+    });
     openCheck(true);
   };
 
@@ -50,7 +57,7 @@ const KitchenRecord = (props) => {
   };
 
   return kitchen ? (
-    <tr class="border-x-2 border-b-2">
+    <tr class="border-x-2 border-b-2 border-stone-500">
       <td class="">
         {/* Uses the allselected prop from the kitchen list to set the check box*/}
         {props.allSelected ? (
@@ -71,7 +78,7 @@ const KitchenRecord = (props) => {
         )}
       </td>
 
-      <td class="w-1/12 text-center border-r-2">{kitchen.id}</td>
+      <td class="w-1/12 text-center border-r-2 border-stone-500">{kitchen.id}</td>
 
       <td class="recordItem">
         {/* This provides a test if the edit button has been checked and if so to open a text field to change the value. */}
@@ -163,10 +170,10 @@ const KitchenRecord = (props) => {
         )}
       </td>
 
-      <td class="grid grid-cols-3 gap-9 pr-8">
+      <td class="grid grid-cols-3 gap-9 pr-8 text-stone-500">
         <EditIcon
           onClick={() => updateEditMode(true)}
-          style={{ cursor: "pointer", color: "#ccc", margin: 2 }}
+          style={{ cursor: "pointer", margin: 2 }}
         />
         <DeleteIcon
           onClick={() => setClick(true)}
@@ -198,14 +205,6 @@ const KitchenRecord = (props) => {
           </td>
         ) : null}
       </td>
-
-      {is_open ? (
-        <InformationModal
-          isOpen={is_open}
-          kitchen={kitchen}
-          closeInfoModal={updateCloseView}
-        />
-      ) : null}
     </tr>
   ) : null;
 };

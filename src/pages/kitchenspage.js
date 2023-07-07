@@ -26,7 +26,7 @@ const KitchensPage = props => {
 
   return (
       <>
-        <div class=" p-[1%]">
+        <div class=" p-[1%] bg-back">
             <div class="grid" item style={{color: '#888'}}>
                 {(kitchens && kitchens.length) ? (kitchens.length) : "0"} Kitchens
             </div>

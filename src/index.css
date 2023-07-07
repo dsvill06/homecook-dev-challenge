@@ -7,10 +7,10 @@
         @apply w-1/6
     }
     .headItem{
-        @apply w-1/6 border-2 border-gray-800 
+        @apply w-1/6 border-2 border-black text-white
     }
     .recordItem{
-        @apply w-1/4 text-center border-r-2
+        @apply w-1/4 text-center border-r-2 border-stone-500
     }
     .gridLayout{
         @apply grid m-5
@@ -22,3 +22,20 @@
         @apply grid w-full
     }
 }
+@media (max-width: 600px) {
+    .grid-cols-2 {
+      grid-template-columns: 1fr; /* Change to a single column */
+    }
+  
+    .ml-10 {
+      margin-left: auto;
+      margin-right: auto; /* Center the image horizontally */
+    }
+    .text-left{
+        text-align: center;
+    }
+  }
+
+  .fontLink{
+    font-family: "Playfair Display";
+  }

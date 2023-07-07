@@ -14,8 +14,8 @@ const KitchenList = (props) => {
 
   return (
     <table class="table-auto my-3">
-      <thead class="bg-secondary h-10 pl-4 border-2 border-gray-800 ">
-        <th class="flex "> 
+      <thead class="bg-secondary h-10 pl-4 border-2 border-black ">
+        <th class="flex text-white p-3"> 
           {allselected ? (
             <CheckBoxIcon
               onClick={() => updateAllSelected(false)}
@@ -28,7 +28,7 @@ const KitchenList = (props) => {
           &nbsp; <KeyboardArrowDownIcon onClick={handleIDSort} style={{ cursor: "pointer", fontSize: 15 }} />
         </th>
 
-        <th class="w-1/12">ID</th>
+        <th class="w-1/12 text-white border-black">ID</th>
 
         <th class="headItem">
           Kitchen Name &nbsp; <KeyboardArrowDownIcon onClick={handleNameSort} style={{ cursor: "pointer", fontSize: 15 }} />
