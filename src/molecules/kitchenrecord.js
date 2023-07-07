@@ -58,7 +58,7 @@ const KitchenRecord = (props) => {
 
   return kitchen ? (
     <tr class="border-x-2 border-b-2 border-stone-500">
-      <td class="">
+      <td class="pl-5s">
         {/* Uses the allselected prop from the kitchen list to set the check box*/}
         {props.allSelected ? (
           <CheckBoxIcon
@@ -78,7 +78,7 @@ const KitchenRecord = (props) => {
         )}
       </td>
 
-      <td class="w-1/12 text-center border-r-2 border-stone-500">{kitchen.id}</td>
+      <td class="w-48 pr-5 text-center border-r-2 border-stone-500">{kitchen.id}</td>
 
       <td class="recordItem">
         {/* This provides a test if the edit button has been checked and if so to open a text field to change the value. */}

@@ -11,7 +11,11 @@ module.exports = {
         },
         secondary: "#003847",
         tertiary: "#ccc",
-        back: "#eee",
+        back: {
+          400: "#d9d9d9",
+          500: "#ececec"
+        },
+
         cancel: "#ad0c00"
       },
     },

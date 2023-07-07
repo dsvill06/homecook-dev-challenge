@@ -18,7 +18,7 @@ const Search = (props) => {
     <div class="grid w-3/5 grid-cols-2">
       <input
         type="text"
-        class="form-input px-4 py-3 rounded w-full max-h-full"
+        class="form-input px-4 py-3 rounded w-full max-h-full bg-back-500"
         onChange={(event) => {
           setInput(event.target.value)
         }}

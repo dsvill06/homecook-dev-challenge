@@ -28,9 +28,9 @@ const KitchenList = (props) => {
           &nbsp; <KeyboardArrowDownIcon onClick={handleIDSort} style={{ cursor: "pointer", fontSize: 15 }} />
         </th>
 
-        <th class="w-1/12 text-white border-black">ID</th>
+        <th class="w-48 pr-5 text-white border-black">ID</th>
 
-        <th class="headItem">
+        <th class="headItem ">
           Kitchen Name &nbsp; <KeyboardArrowDownIcon onClick={handleNameSort} style={{ cursor: "pointer", fontSize: 15 }} />
         </th>
 
@@ -43,7 +43,7 @@ const KitchenList = (props) => {
 
         
       </thead>
-      <tbody class="bg-tertiary">
+      <tbody class="bg-back-500">
       {kitchens
         ? kitchens.map((kitchen, i) => (
           <KitchenRecord
@@ -51,6 +51,7 @@ const KitchenList = (props) => {
           kitchen={kitchen}
           openAppModal={openAppModal}
           allSelected={allselected}
+          
         />
 
           ))
