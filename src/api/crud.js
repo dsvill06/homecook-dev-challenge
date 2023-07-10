@@ -32,7 +32,7 @@ const getAllKitchens = async () => {
 
 const getKitchenID = async (props) => {
     let data = []
-    let fetch_api_url = `https://${new_api_id}.execute-api.us-east-1.amazonaws.com${stage}/fetch/${props.id}`
+    let fetch_api_url = `https://${new_api_id}.execute-api.us-east-1.amazonaws.com/${stage}/fetch/${props.id}`
 
     let response = await axiosInstance.get(fetch_api_url)
     if (response){

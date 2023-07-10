@@ -40,10 +40,7 @@ const KitchenRecord = (props) => {
 
 
   const updateOpenView = () => {
-    history.push({
-      pathname: "/kitcheninfo",
-      state: { kitchen },
-    });
+    history.push(`/kitcheninfo/${kitchen.id}`);
     openCheck(true);
   };
 

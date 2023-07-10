@@ -20,7 +20,7 @@ const AppView = props => {
       <Navbar/>
       <Switch>
           <Route exact path="/" component={KitchensPage}/>
-          <Route path="/kitcheninfo" component={KitchenInfo}/>
+          <Route path="/kitcheninfo/:kitchenid" component={KitchenInfo}/>
       </Switch>
 
       </>
